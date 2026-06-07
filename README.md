@@ -11,18 +11,7 @@ This repository provides a community-compiled archive for the visual novel *Saya
 
 Follow these steps to get the game running on your Android device:
 
-* **Download:** Grab the latest game data archive from the Downloads section above.
-* **Engine:** You must have the [VNSdroid](https://github.com/stella684/VNSdroid/releases) application installed on your device.
-* **Setup:** Extract the downloaded archive into your device's `vnds/novels/` directory.
-* **Launch:** Open the VNSdroid app; the game will appear in your library automatically.
-
-## 🛠 Troubleshooting
-
-If the application fails to detect the game or load assets, please perform the following checks:
-
-* Ensure you have granted the VNSdroid application **Storage Permissions** via your device's App Info settings.
-* Verify the file path: The game folder must be placed directly inside the `/sdcard/vnds/novels/` directory.
-* Check that your device has at least 1GB of free space to allow for engine decompression.
+* **Download:** Grab the latest game data archive from the Downloads section and play
 
 ## ⚙️ Technical Details
 
