@@ -145,7 +145,8 @@
         CONFIG.downloads.forEach(dl => {
             const row = document.createElement('div');
             row.className = 'dl-row';
-            row.innerHTML = `<div><div class="file-name">${dl.name}</div><div class="file-meta">${dl.meta}</div></div><a href="${dl.url}" class="dl-link" download>DOWNLOAD</a>`;
+            
+            row.innerHTML = `<div><div class="file-name">${dl.name}</div><div class="file-meta">${dl.meta}</div></div><a href="${dl.url}" class="dl-link" target="_blank">DOWNLOAD</a>`;
             listDiv.appendChild(row);
         });
 
