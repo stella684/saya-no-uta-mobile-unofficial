@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saya No Uta</title>
+    <style>
+        :root {
+            --bg: #0f1115;
+            --card-bg: #161920;
+            --border: #22c55e;
+            --text-muted: #94a3b8;
+            --text-normal: #e2e8f0;
+            --text-bright: #4ade80;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-normal);
+            font-family: monospace;
+            font-size: 14px;
+            padding: 15px;
+            line-height: 1.5;
+        }
+
+        .container { max-width: 700px; margin: 0 auto; }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .title { font-size: 16px; font-weight: bold; color: var(--text-bright); }
+
+        .discord-btn-wrapper { display: flex; flex-direction: column; align-items: center; }
+
+        .discord-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            color: var(--text-bright);
+            padding: 5px 12px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+        }
+
+        .discord-btn:hover { background: var(--border); color: var(--bg); }
+        .discord-btn svg { width: 16px; height: 16px; fill: currentColor; }
+        .btn-subtext { font-size: 9px; color: var(--text-muted); margin-top: 3px; }
+
+        .box { background: var(--card-bg); border: 1px solid var(--border); padding: 15px; margin-bottom: 20px; }
+        .section-title { color: var(--text-bright); font-size: 12px; margin-bottom: 15px; text-transform: uppercase; font-weight: bold; }
+
+        .dl-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px dashed #2d3748;
+            padding: 10px 0;
+        }
+        .dl-row:last-child { border-bottom: none; }
+        .file-name { color: var(--text-normal); font-weight: bold; }
+        .file-meta { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+        .dl-link {
+            color: var(--bg);
+            background: var(--text-bright);
+            padding: 4px 10px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        .dl-link:hover { background: #ffffff; }
+
+        .readme-title { border: 1px solid var(--border); border-bottom: none; padding: 6px 10px; font-size: 12px; background: var(--card-bg); color: var(--text-bright); }
+        .readme-body { border: 1px solid var(--border); padding: 20px; background: var(--card-bg); margin-bottom: 20px; }
+        .readme-body h1 { color: var(--text-bright); font-size: 18px; margin-bottom: 15px; }
+        .readme-body h2 { color: var(--text-bright); font-size: 14px; margin: 15px 0 10px 0; border-bottom: 1px dashed var(--border); padding-bottom: 3px; }
+        .readme-body p { margin-bottom: 12px; color: var(--text-normal); }
+        .readme-body a { color: var(--text-bright); }
+        .readme-body code { background: var(--bg); padding: 2px 4px; color: var(--text-bright); border: 1px solid #2d3748; }
+
+        .disclaimer-box { border: 1px dashed #ef4444; background: #1a1012; color: #f87171; padding: 12px; font-size: 11px; }
+
+        @media (max-width: 500px) {
+            .dl-row { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .dl-link { width: 100%; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="top-bar">
+        <span class="title" id="site-title">Saya No Uta</span>
+        <div class="discord-btn-wrapper">
+            <a href="https://discord.gg/AdTcQFk8gZ" target="_blank" class="discord-btn">
+                <svg viewBox="0 0 127.14 96.36"><path d="M107.7,8.07A105.15,105.15,0,0,0,77.26,0a77.19,77.19,0,0,0-3.3,6.83A96.67,96.67,0,0,0,53.22,6.83,77.19,77.19,0,0,0,49.88,0,105.15,105.15,0,0,0,19.44,8.07C3.66,31.58-1.86,54.65,1,77.53A105.73,105.73,0,0,0,32,96.36a74.37,74.37,0,0,0,6.73-10.93,68.6,68.6,0,0,1-10.64-5.12c.91-.67,1.81-1.37,2.65-2.1a75.22,75.22,0,0,0,72.71,0c.84.73,1.74,1.43,2.65,2.1a68.56,68.56,0,0,1-10.64,5.12,74.74,74.74,0,0,0,6.73,10.93,105.54,105.54,0,0,0,31.11-18.83C129.5,49.7,123.57,26.85,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53S36.18,40.36,42.45,40.36,53.92,46,53.72,53,48.72,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.24,60,73.24,53S78.41,40.36,84.69,40.36,96.15,46,96,53,91,65.69,84.69,65.69Z"/></svg>
+                DISCORD
+            </a>
+            <span class="btn-subtext">Community Support</span>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="section-title">// RELEASES DIRECTORY</div>
+        <div id="downloads-list"></div>
+    </div>
+
+    <div class="readme-title">README.md</div>
+    <div class="readme-body" id="readme-contents"></div>
+
+    <div class="disclaimer-box">
+        LEGAL DISCLAIMER: This is an unofficial fan project. All assets and characters belong to Nitroplus Co., Ltd. No copyright infringement intended.
+    </div>
+</div>
+
+<script>
+    const CONFIG = {
+        "downloads": [
+            { "name": "Saya_No_Uta_1.0.0.apk", "meta": "Format: APK | Size: 510.75 MB | Engine: 2.1.0", "url": "#" }
+        ],
+        "readme": [
+            { "type": "h1", "value": "Saya no Uta — Android Port Project" },
+            { "type": "p", "value": "This repository hosts the community-compiled Android APK for the visual novel <i>Saya no Uta</i>. This project utilizes the VNSdroid engine to provide a stable mobile experience." },
+            { "type": "h2", "value": "How to Install" },
+            { "type": "p", "value": "1. Download the provided <code>.apk</code> file above.<br>2. Ensure your Android security settings allow 'Install from Unknown Sources'.<br>3. Open the file via your device file manager to begin installation." },
+            { "type": "h2", "value": "Compatibility" },
+            { "type": "p", "value": "This build is tested for modern Android OS versions. If you encounter crashes upon launch, please ensure you have granted storage permissions to the application." },
+            { "type": "h2", "value": "Resources" },
+            { "type": "p", "value": "For engine source code and official releases, visit the <a href='https://github.com/stella684/VNSdroid/releases' target='_blank'>VNSdroid Repository</a>." }
+        ]
+    };
+
+    function init() {
+        const listDiv = document.getElementById('downloads-list');
+        CONFIG.downloads.forEach(dl => {
+            const row = document.createElement('div');
+            row.className = 'dl-row';
+            row.innerHTML = `<div><div class="file-name">${dl.name}</div><div class="file-meta">${dl.meta}</div></div><a href="${dl.url}" class="dl-link" download>DOWNLOAD</a>`;
+            listDiv.appendChild(row);
+        });
+
+        const readmeDiv = document.getElementById('readme-contents');
+        CONFIG.readme.forEach(block => {
+            const el = document.createElement(block.type);
+            el.innerHTML = block.value;
+            readmeDiv.appendChild(el);
+        });
+    }
+    window.onload = init;
+</script>
+</body>
+</html>
