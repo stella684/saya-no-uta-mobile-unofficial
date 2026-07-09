@@ -1,0 +1,36 @@
+{
+    "🇬🇧 English Translation": [
+        {
+            "filename": "Saya_No_Uta_2.0.0.apk",
+            "tag": "NEW VERSION",
+            "tagColor": "#d9534f",
+            "format": "APK",
+            "size": "420.00 MB",
+            "engine": "2.1.0",
+            "host": "Google Drive",
+            "url": "https://drive.usercontent.google.com/download?id=1urhBNtBFrBl3WihWBE8cXEW6NXaQMxrC&export=download&authuser=5"
+        },
+        {
+            "filename": "Saya_No_Uta_1.0.0.apk",
+            "tag": "OLD VERSION",
+            "tagColor": "#777",
+            "format": "APK",
+            "size": "510.75 MB",
+            "engine": "2.0.0",
+            "host": "Google Drive",
+            "url": "https://drive.usercontent.google.com/download?id=1QDPPvf9AugY4Qpre_IUGYKfV3isbfqYQ&export=download&authuser=0"
+        }
+    ],
+    "🇵🇹 Portuguese Translation": [
+        {
+            "filename": "A_Canção_de_Saya.apk",
+            "tag": "Release",
+            "tagColor": "#5cb85c",
+            "format": "APK",
+            "size": "301 MB",
+            "engine": "2.1.0",
+            "host": "Google Drive",
+            "url": "https://drive.usercontent.google.com/download?id=1jUc1aNflLDCZq5Kbw8og_MGQGgX9CbDB&export=download&authuser=0"
+        }
+    ]
+}
