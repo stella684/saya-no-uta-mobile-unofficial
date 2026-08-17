@@ -32,9 +32,20 @@
             "host": "Google Drive",
             "url": "https://drive.usercontent.google.com/download?id=1u6iDGThijZCJUBweL7xRK7YUMousfR84&export=download&authuser=0"
         }
-    ], 
+    ],
     "🇪🇸 Spanish Translation": [
         {
+            "filename": "El_canto_de_Saya.apk",
+            "tag": "Release",
+            "tagColor": "#5cb85c",
+            "format": "APK",
+            "size": "450 MB",
+            "engine": "2.1.0",
+            "host": "Google Drive",
+            "url": "https://drive.usercontent.google.com/download?id=1u6iDGThijZCJUBweL7xRK7YUMousfR84&export=download&authuser=0"
+        }
+    ]
+}        {
             "filename": "",
             "tag": "Release",
             "tagColor": "#5cb85c",
