@@ -38,6 +38,10 @@
             "filename": "El_canto_de_Saya.apk",
             "tag": "Release",
             "tagColor": "#5cb85c",
+            "format": "APK        {
+            "filename": "El_canto_de_Saya.apk",
+            "tag": "Release",
+            "tagColor": "#5cb85c",
             "format": "APK",
             "size": "450 MB",
             "engine": "2.1.0",
