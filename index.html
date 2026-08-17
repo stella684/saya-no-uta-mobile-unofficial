@@ -570,69 +570,63 @@
     </div>
 
     <script>
+        // ─── CORRECTED DATA HARDCODED (with all 3 languages) ───
         const fallbackJSON = {
-            "English Translation": [{
-                "filename": "Saya_No_Uta_2.0.0.apk",
-                "tag": "NEW VERSION",
-                "tagColor": "#ff9a9a",
-                "format": "APK",
-                "size": "420.00 MB",
-                "engine": "2.1.0",
-                "host": "Google Drive",
-                "url": "#"
-            }, {
-                "filename": "Saya_No_Uta_1.0.0.apk",
-                "tag": "OLD VERSION",
-                "tagColor": "#bbbbbb",
-                "format": "APK",
-                "size": "510.75 MB",
-                "engine": "2.0.0",
-                "host": "Google Drive",
-                "url": "#"
-            }],
-            "Portuguese Translation": [{
-                "filename": "HD_Textures_Pack.zip",
-                "tag": "ADD-ON",
-                "tagColor": "#8bc34a",
-                "format": "ZIP",
-                "size": "850.20 MB",
-                "engine": "All",
-                "host": "MediaFire",
-                "url": "#"
-            }]
+            "🇬🇧 English Translation": [
+                {
+                    "filename": "Saya_No_Uta_2.0.0.apk",
+                    "tag": "NEW VERSION",
+                    "tagColor": "#d9534f",
+                    "format": "APK",
+                    "size": "420.00 MB",
+                    "engine": "2.1.0",
+                    "host": "Google Drive",
+                    "url": "https://drive.usercontent.google.com/download?id=1urhBNtBFrBl3WihWBE8cXEW6NXaQMxrC&export=download&authuser=5"
+                },
+                {
+                    "filename": "Saya_No_Uta_1.0.0.apk",
+                    "tag": "OLD VERSION",
+                    "tagColor": "#777",
+                    "format": "APK",
+                    "size": "510.75 MB",
+                    "engine": "2.0.0",
+                    "host": "Google Drive",
+                    "url": "https://drive.usercontent.google.com/download?id=1QDPPvf9AugY4Qpre_IUGYKfV3isbfqYQ&export=download&authuser=0"
+                }
+            ],
+            "🇧🇷 Brazilian Portuguese Translation": [
+                {
+                    "filename": "A_Canção_de_Saya.apk",
+                    "tag": "Release",
+                    "tagColor": "#5cb85c",
+                    "format": "APK",
+                    "size": "301 MB",
+                    "engine": "2.1.0",
+                    "host": "Google Drive",
+                    "url": "https://drive.usercontent.google.com/download?id=1u6iDGThijZCJUBweL7xRK7YUMousfR84&export=download&authuser=0"
+                }
+            ],
+            "🇪🇸 Spanish Translation": [
+                {
+                    "filename": "El_canto_de_Saya.apk",
+                    "tag": "Release",
+                    "tagColor": "#5cb85c",
+                    "format": "APK",
+                    "size": "450 MB",
+                    "engine": "2.1.0",
+                    "host": "Google Drive",
+                    "url": "https://drive.usercontent.google.com/download?id=1u6iDGThijZCJUBweL7xRK7YUMousfR84&export=download&authuser=0"
+                }
+            ]
         };
 
-        async function loadDownloads() {
+        // ─── RENDER FUNCTION ───
+        function renderData(data) {
             const container = document.getElementById('downloads-container');
-            let data = null;
-
-            try {
-                const response = await fetch('downloads.json');
-                if (!response.ok) throw new Error(`HTTP ${response.status}`);
-                data = await response.json();
-            } catch (_) {
-                console.warn('Using fallback data (downloads.json not available).');
-                data = fallbackJSON;
-                const note = document.createElement('p');
-                note.className = 'status-msg';
-                note.style.opacity = '0.4';
-                note.textContent = 'ⓘ Using fallback list (downloads.json not loaded).';
-                container.appendChild(note);
-            }
-
+            // Clear everything except the status message if present
             const existingNote = container.querySelector('.status-msg');
-            if (existingNote && !existingNote.textContent.includes('fallback')) {
-                container.innerHTML = '';
-            } else if (!existingNote) {
-                container.innerHTML = '';
-            } else {
-                const children = container.children;
-                for (let i = children.length - 1; i >= 0; i--) {
-                    if (children[i] !== existingNote) {
-                        children[i].remove();
-                    }
-                }
-            }
+            container.innerHTML = '';
+            if (existingNote) container.appendChild(existingNote);
 
             for (const [category, items] of Object.entries(data)) {
                 const group = document.createElement('div');
@@ -651,23 +645,49 @@
                     div.className = 'release-item';
                     const tagColor = item.tagColor || '#ffffff';
                     div.innerHTML = `
-                            <h3>
-                                ${item.filename}
-                                <span class="tag" style="background:${tagColor}22; border-color:${tagColor}44; color:#fff;">
-                                    ${item.tag}
-                                </span>
-                            </h3>
-                            <div class="release-meta">
-                                Format: ${item.format} &middot; Size: ${item.size} &middot; Engine: ${item.engine} &middot; ${item.host}
-                            </div>
-                            <a href="${item.url}" class="action-btn">DOWNLOAD</a>
-                        `;
+                        <h3>
+                            ${item.filename}
+                            <span class="tag" style="background:${tagColor}22; border-color:${tagColor}44; color:#fff;">
+                                ${item.tag}
+                            </span>
+                        </h3>
+                        <div class="release-meta">
+                            Format: ${item.format} &middot; Size: ${item.size} &middot; Engine: ${item.engine} &middot; ${item.host}
+                        </div>
+                        <a href="${item.url}" class="action-btn">DOWNLOAD</a>
+                    `;
                     itemsGrid.appendChild(div);
                 });
 
                 group.appendChild(itemsGrid);
                 container.appendChild(group);
             }
+        }
+
+        // ─── LOAD: try external JSON, fallback to hardcoded ───
+        async function loadDownloads() {
+            const container = document.getElementById('downloads-container');
+            let data = null;
+
+            try {
+                const response = await fetch('downloads.json');
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                data = await response.json();
+                // Remove any loading/fallback message
+                const msg = container.querySelector('.status-msg');
+                if (msg) msg.remove();
+            } catch (_) {
+                console.warn('Using hardcoded fallback data (downloads.json not loaded).');
+                // Show a subtle note
+                const note = document.createElement('p');
+                note.className = 'status-msg';
+                note.style.opacity = '0.4';
+                note.textContent = 'ⓘ Using built-in release list (external file not loaded).';
+                container.appendChild(note);
+                data = fallbackJSON;
+            }
+
+            renderData(data);
         }
 
         document.addEventListener('DOMContentLoaded', loadDownloads);
